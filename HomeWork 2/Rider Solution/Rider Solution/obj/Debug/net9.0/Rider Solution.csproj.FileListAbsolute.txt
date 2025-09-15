@@ -1,0 +1,15 @@
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/bin/Debug/net9.0/Rider Solution
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/bin/Debug/net9.0/Rider Solution.deps.json
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/bin/Debug/net9.0/Rider Solution.runtimeconfig.json
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/bin/Debug/net9.0/Rider Solution.dll
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/bin/Debug/net9.0/Rider Solution.pdb
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/obj/Debug/net9.0/Rider Solution.GeneratedMSBuildEditorConfig.editorconfig
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/obj/Debug/net9.0/Rider Solution.AssemblyInfoInputs.cache
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/obj/Debug/net9.0/Rider Solution.AssemblyInfo.cs
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/obj/Debug/net9.0/Rider Solution.csproj.CoreCompileInputs.cache
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/obj/Debug/net9.0/Rider Solution.sourcelink.json
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/obj/Debug/net9.0/Rider Solution.dll
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/obj/Debug/net9.0/refint/Rider Solution.dll
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/obj/Debug/net9.0/Rider Solution.pdb
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/obj/Debug/net9.0/Rider Solution.genruntimeconfig.cache
+/home/gkutubidze/Documents/HomeWorks/HomeWork 2/Rider Solution/Rider Solution/obj/Debug/net9.0/ref/Rider Solution.dll
