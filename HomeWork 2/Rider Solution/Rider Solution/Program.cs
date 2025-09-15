@@ -7,7 +7,8 @@ namespace Homework2
         static void Main(string[] args)
         {
             
-             
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.Clear(); // 
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.WriteLine("Giorgi Kutubidze");
