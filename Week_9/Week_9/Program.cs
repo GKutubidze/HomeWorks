@@ -21,7 +21,7 @@ class Program
 
 
         // === Student Example ===
-        Student student = new Student("student1", 20, 2023);`
+        Student student = new Student("student1", 20, 2023);
         Console.WriteLine( student.GetRandomSubject());
         Console.WriteLine( student.YearsLeft()  );
 
@@ -217,20 +217,22 @@ class Program
 
         public virtual void Study()
         {
-            Console.WriteLine($"{Name} studies hard and always prepares homework.");
-
+            Console.WriteLine("Base Study");
         }
+
         public virtual void Read()
         {
-        
+            Console.WriteLine("Base Read");
         }
-        public  virtual void Write()
+
+        public virtual void Write()
         {
-        
+            Console.WriteLine("Base Write");
         }
-        public virtual  void Relax()
+
+        public virtual void Relax()
         {
-        
+            Console.WriteLine("Base Relax");
         }
     }
 
