@@ -13,6 +13,8 @@ public class BankService
     {
         Console.WriteLine("\n=== ნაშთის ნახვა ===");
         Console.WriteLine($"თქვენი ბალანსი: {user.cardDetails.currentBalance} {user.cardDetails.CurrentCurrency}");
+        AddTransactionRecord(user.cardDetails, "BalanceInquiry", 0);
+        FileService.SaveBankCards(new BankCardRoot { users = new List<User> { user } });
         logger.Info($"ბალანსის ნახვა: {user.cardDetails.currentBalance}");
     }
 
@@ -33,7 +35,7 @@ public class BankService
 
             if (result)
             {
-                AddTransactionRecord(card, "გამოტანა", amount);
+                AddTransactionRecord(card, "GetAmount", amount);
                 FileService.SaveBankCards(bankCardRoot);
                 Console.WriteLine($"✅ გამოტანა წარმატებული! გამოტანილი თანხა: {amount}");
                 Console.WriteLine($"თქვენი ახალი ბალანსი: {card.currentBalance} {card.CurrentCurrency}");
@@ -74,7 +76,7 @@ public class BankService
 
             if (result)
             {
-                AddTransactionRecord(card, "შეტანა", amount);
+                AddTransactionRecord(card, "FillAmount", amount);
                 FileService.SaveBankCards(bankCardRoot);
                 Console.WriteLine($"✅ შეტანა წარმატებული! შეტანილი თანხა: {amount}");
                 Console.WriteLine($"თქვენი ახალი ბალანსი: {card.currentBalance} {card.CurrentCurrency}");
@@ -93,7 +95,7 @@ public class BankService
         }
     }
 
-    public  static void ViewLastOperations(User user)
+    public static void ViewLastOperations(User user)
     {
         Console.WriteLine("\n=== ბოლო 5 ოპერაცია ===");
         var lastTransactions = user.cardDetails.GetLastFiveTransactions();
@@ -116,7 +118,7 @@ public class BankService
         logger.Info("ბოლო 5 ოპერაციის ნახვა");
     }
 
-    public static  void ChangePIN(User user, BankCardRoot bankCardRoot)
+    public static void ChangePIN(User user, BankCardRoot bankCardRoot)
     {
         Console.WriteLine("\n=== PIN კოდის შეცვლა ===");
         Console.Write("შეიყვანეთ ძველი PIN კოდი: ");
@@ -125,6 +127,8 @@ public class BankService
         if (oldPin != user.cardDetails.pinCode)
         {
             Console.WriteLine("❌ შეცდომა: ძველი PIN კოდი არასწორია.");
+            AddTransactionRecord(user.cardDetails, "ChangePin", 0);
+            FileService.SaveBankCards(bankCardRoot);
             return;
         }
 
@@ -148,6 +152,7 @@ public class BankService
 
         if (user.cardDetails.ChangePinCode(newPin))
         {
+            AddTransactionRecord(user.cardDetails, "ChangePin", 0);
             FileService.SaveBankCards(bankCardRoot);
             Console.WriteLine("✅ PIN კოდი წარმატებით შეიცვალა!");
             logger.Info("PIN კოდი შეიცვალა");
@@ -158,7 +163,7 @@ public class BankService
         }
     }
 
-    public  static void ConvertCurrency(User user, BankCardRoot bankCardRoot)
+    public static void ConvertCurrency(User user, BankCardRoot bankCardRoot)
     {
         Console.WriteLine("\n=== ვალუტის კონვერტაცია ===");
         Console.WriteLine($"მიმდინარე ვალუტა: {user.cardDetails.CurrentCurrency}");
@@ -171,8 +176,8 @@ public class BankService
         {
             if (user.cardDetails.ConvertCurrency(targetCurrency))
             {
-                FileService.SaveBankCards(bankCardRoot);
                 AddTransactionRecord(user.cardDetails, "ვალუტის კონვერტაცია", user.cardDetails.currentBalance);
+                FileService.SaveBankCards(bankCardRoot);
                 logger.Info($"ვალუტა გარდაიქმნა: {targetCurrency}");
             }
         }
@@ -200,5 +205,6 @@ public class BankService
         };
 
         card.transactionHistory.Add(transaction);
+        logger.Info($"ტრანზაქცია ჩაწერილი: {type} - {amount}");
     }
 }

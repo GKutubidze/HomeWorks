@@ -7,9 +7,9 @@
         "cardNumber": "1234567890123456",
         "expirationDate": "12/25",
         "CVC": "123",
-        "currentBalance": 25.97,
-        "CurrentCurrency": "GEL",
-        "pinCode": "1111",
+        "currentBalance": 2.21,
+        "CurrentCurrency": "EUR",
+        "pinCode": "2222",
         "transactionHistory": [
           {
             "transactionDate": "2024-01-03T10:15:30Z",
@@ -48,10 +48,31 @@
           },
           {
             "transactionDate": "2025-10-11T13:01:26.0877733+04:00",
-            "transactionType": "\u10D5\u10D0\u10DA\u10E3\u10E2\u10D8\u10E1 \u10D9\u10DD\u10DC\u10D5\u10D4\u10E0\u10E2\u10D0\u10EA\u10D8\u10D0",
+            "transactionType": "ვალუტის კონვერტაცია",
             "amountGEL": 0,
             "amountUSD": 9.62,
             "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-11T21:54:44.2970981+04:00",
+            "transactionType": "ვალუტის კონვერტაცია",
+            "amountGEL": 26.49,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-11T21:57:39.8534056+04:00",
+            "transactionType": "GetAmount",
+            "amountGEL": 20,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-11T22:07:54.1890756+04:00",
+            "transactionType": "ვალუტის კონვერტაცია",
+            "amountGEL": 0,
+            "amountUSD": 0,
+            "amountEUR": 2.21
           }
         ]
       }
@@ -63,9 +84,9 @@
         "cardNumber": "9876543210987654",
         "expirationDate": "06/24",
         "CVC": "456",
-        "currentBalance": 0,
+        "currentBalance": 200,
         "CurrentCurrency": "GEL",
-        "pinCode": "5678",
+        "pinCode": "1111",
         "transactionHistory": [
           {
             "transactionDate": "2024-02-01T09:00:00Z",
@@ -78,6 +99,13 @@
             "transactionDate": "2024-02-02T14:30:00Z",
             "transactionType": "Withdraw",
             "amountGEL": 50,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-11T21:27:09.9421256+04:00",
+            "transactionType": "შეტანა",
+            "amountGEL": 200,
             "amountUSD": 0,
             "amountEUR": 0
           }
