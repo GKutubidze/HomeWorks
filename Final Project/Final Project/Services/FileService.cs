@@ -32,7 +32,11 @@ public class FileService
         try
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "../../../Data/cards.json");
-            var options = new JsonSerializerOptions { WriteIndented = true };
+            var options = new JsonSerializerOptions 
+            { 
+                WriteIndented = true,
+                Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+            };
             string jsonContent = JsonSerializer.Serialize(bankCardRoot, options);
             File.WriteAllText(path, jsonContent);
             logger.Info("მონაცემები წარმატებით შეინახა.");
