@@ -1,0 +1,116 @@
+{
+  "users": [
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "cardDetails": {
+        "cardNumber": "1234567890123456",
+        "expirationDate": "12/25",
+        "CVC": "123",
+        "currentBalance": 25.97,
+        "CurrentCurrency": "GEL",
+        "pinCode": "1111",
+        "transactionHistory": [
+          {
+            "transactionDate": "2024-01-03T10:15:30Z",
+            "transactionType": "ChangePin",
+            "amountGEL": 10,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2024-01-03T10:15:30Z",
+            "transactionType": "DepositCheck",
+            "amountGEL": 100,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2024-01-02T15:45:00Z",
+            "transactionType": "GetAmount",
+            "amountGEL": 500,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2024-01-01T08:20:45Z",
+            "transactionType": "FillAmount",
+            "amountGEL": 600,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2024-01-01T08:20:45Z",
+            "transactionType": "BalanceInquiry",
+            "amountGEL": 0,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-11T13:01:26.0877733+04:00",
+            "transactionType": "\u10D5\u10D0\u10DA\u10E3\u10E2\u10D8\u10E1 \u10D9\u10DD\u10DC\u10D5\u10D4\u10E0\u10E2\u10D0\u10EA\u10D8\u10D0",
+            "amountGEL": 0,
+            "amountUSD": 9.62,
+            "amountEUR": 0
+          }
+        ]
+      }
+    },
+    {
+      "firstName": "Alice",
+      "lastName": "Smith",
+      "cardDetails": {
+        "cardNumber": "9876543210987654",
+        "expirationDate": "06/24",
+        "CVC": "456",
+        "currentBalance": 0,
+        "CurrentCurrency": "GEL",
+        "pinCode": "5678",
+        "transactionHistory": [
+          {
+            "transactionDate": "2024-02-01T09:00:00Z",
+            "transactionType": "DepositCash",
+            "amountGEL": 200,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2024-02-02T14:30:00Z",
+            "transactionType": "Withdraw",
+            "amountGEL": 50,
+            "amountUSD": 0,
+            "amountEUR": 0
+          }
+        ]
+      }
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Johnson",
+      "cardDetails": {
+        "cardNumber": "1111222233334444",
+        "expirationDate": "03/26",
+        "CVC": "789",
+        "currentBalance": 0,
+        "CurrentCurrency": "GEL",
+        "pinCode": "4321",
+        "transactionHistory": [
+          {
+            "transactionDate": "2024-03-01T12:00:00Z",
+            "transactionType": "FillAmount",
+            "amountGEL": 500,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2024-03-01T12:15:00Z",
+            "transactionType": "BalanceInquiry",
+            "amountGEL": 0,
+            "amountUSD": 0,
+            "amountEUR": 0
+          }
+        ]
+      }
+    }
+  ]
+}
