@@ -7,8 +7,8 @@
         "cardNumber": "1234567890123456",
         "expirationDate": "12/25",
         "CVC": "123",
-        "currentBalance": 2.21,
-        "CurrentCurrency": "EUR",
+        "currentBalance": 506.63,
+        "CurrentCurrency": "GEL",
         "pinCode": "2222",
         "transactionHistory": [
           {
@@ -73,6 +73,20 @@
             "amountGEL": 0,
             "amountUSD": 0,
             "amountEUR": 2.21
+          },
+          {
+            "transactionDate": "2025-10-13T12:18:02.4096487+04:00",
+            "transactionType": "CurrencyConversion",
+            "amountGEL": 6.63,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-13T12:19:40.5398152+04:00",
+            "transactionType": "FillAmount",
+            "amountGEL": 500,
+            "amountUSD": 0,
+            "amountEUR": 0
           }
         ]
       }
@@ -119,9 +133,9 @@
         "cardNumber": "1111222233334444",
         "expirationDate": "03/26",
         "CVC": "789",
-        "currentBalance": 0,
+        "currentBalance": 399.6,
         "CurrentCurrency": "GEL",
-        "pinCode": "4321",
+        "pinCode": "1111",
         "transactionHistory": [
           {
             "transactionDate": "2024-03-01T12:00:00Z",
@@ -133,6 +147,34 @@
           {
             "transactionDate": "2024-03-01T12:15:00Z",
             "transactionType": "BalanceInquiry",
+            "amountGEL": 0,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-13T11:43:16.1478336+04:00",
+            "transactionType": "FillAmount",
+            "amountGEL": 400,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-13T11:50:27.2461567+04:00",
+            "transactionType": "ვალუტის კონვერტაცია",
+            "amountGEL": 0,
+            "amountUSD": 148,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-13T11:50:53.6014177+04:00",
+            "transactionType": "ვალუტის კონვერტაცია",
+            "amountGEL": 399.6,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-13T11:52:01.4889549+04:00",
+            "transactionType": "ChangePin",
             "amountGEL": 0,
             "amountUSD": 0,
             "amountEUR": 0
