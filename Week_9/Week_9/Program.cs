@@ -8,11 +8,11 @@ class Program
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         // === Company Example ===
-        Company localCompany = new Company(true);
-        Console.WriteLine( localCompany.CalculateSalarY(2000));
-
-        Company foreignCompany = new Company(false);
-        Console.WriteLine( foreignCompany.CalculateSalarY(2000));
+        // Company localCompany = new Company(true);
+        // Console.WriteLine( localCompany.CalculateSalarY(2000));
+        //
+        // Company foreignCompany = new Company(false);
+        // Console.WriteLine( foreignCompany.CalculateSalarY(2000));
 
 
         // === Employee Example ===
@@ -21,42 +21,42 @@ class Program
 
 
         // === Student Example ===
-        Student student = new Student("student1", 20, 2023);
-        Console.WriteLine( student.GetRandomSubject());
-        Console.WriteLine( student.YearsLeft()  );
-
-
-        // === Teacher Example ===
-        Teacher teacher = new Teacher("teacher1", true);
-        teacher.PrintInfo("ქიმია");
-        teacher.PrintInfo("მათემატიკა");
-        teacher.PrintInfo("ინგლისური");
-        teacher.PrintInfo("ისტორია");
-
-
-        // === Student2 / GoodStudent / LazyStudent Example ===
-        GoodStudent good = new GoodStudent("goodStudent");
-        LazyStudent lazy = new LazyStudent("lazyStudent");
-
-        Console.WriteLine("\n--- Good Student ---");
-        good.Study();
-        good.Read();
-        good.Write();
-        good.Relax();
-
-        Console.WriteLine("\n--- Lazy Student ---");
-        lazy.Study();
-        lazy.Read();
-        lazy.Write();
-        lazy.Relax();
-
-
-        // === Classroom Example ===
-        Student2[] group = { good, lazy, new GoodStudent("Nino"), new LazyStudent("Saba") };
-        ClassRoom classRoom = new ClassRoom(group);
-
-        
-        classRoom.PrintStudents();
+        // Student student = new Student("student1", 20, 2023);
+        // Console.WriteLine( student.GetRandomSubject());
+        // Console.WriteLine( student.YearsLeft()  );
+        //
+        //
+        // // === Teacher Example ===
+        // Teacher teacher = new Teacher("teacher1", true);
+        // teacher.PrintInfo("ქიმია");
+        // teacher.PrintInfo("მათემატიკა");
+        // teacher.PrintInfo("ინგლისური");
+        // teacher.PrintInfo("ისტორია");
+        //
+        //
+        // // === Student2 / GoodStudent / LazyStudent Example ===
+        // GoodStudent good = new GoodStudent("goodStudent");
+        // LazyStudent lazy = new LazyStudent("lazyStudent");
+        //
+        // Console.WriteLine("\n--- Good Student ---");
+        // good.Study();
+        // good.Read();
+        // good.Write();
+        // good.Relax();
+        //
+        // Console.WriteLine("\n--- Lazy Student ---");
+        // lazy.Study();
+        // lazy.Read();
+        // lazy.Write();
+        // lazy.Relax();
+        //
+        //
+        // // === Classroom Example ===
+        // Student2[] group = { good, lazy, new GoodStudent("Nino"), new LazyStudent("Saba") };
+        // ClassRoom classRoom = new ClassRoom(group);
+        //
+        //
+        // classRoom.PrintStudents();
     }
 
 
@@ -84,8 +84,8 @@ class Program
         public string firstName {get; set;}
         public string lastName {get; set;}
         public int age {get; set;}
-        public string position {get; set;}
-        public int[] weekHours { get; set; }
+        public string position {get; }
+        public int[] weekHours { get;  }
 
         public Employee(string firstName, string lastName, int age, string position, int[] weekHours)
         {
@@ -144,9 +144,9 @@ class Program
 
     class Student
     {
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public int EnrollmentYear { get; set; }
+        private string Name { get; set; }
+        private int Age { get; set; }
+        private int EnrollmentYear { get;  }
 
 
         public Student(string name, int age, int enrollmentYear)
@@ -296,7 +296,7 @@ class Program
         }
 
         public void PrintStudents()
-        {
+        { 
             foreach (var student in students)
             { 
                 student.Study(); 
