@@ -24,7 +24,7 @@ public class BankService
         catch (Exception ex)
         {
             logger.Error($"ბალანსის ნახვის შეცდომა: {ex.Message}");
-            Console.WriteLine("❌ ბალანსის ნახვაში შეცდომა მოხდა.");
+            Console.WriteLine("ბალანსის ნახვაში შეცდომა მოხდა.");
         }
     }
 
@@ -37,21 +37,21 @@ public class BankService
 
             if (string.IsNullOrEmpty(input))
             {
-                Console.WriteLine("❌ თანხა არ შეიძლება იყოს ცარიელი.");
+                Console.WriteLine("თანხა არ შეიძლება იყოს ცარიელი.");
                 logger.Warn("ცარიელი გამოტანის თანხა.");
                 return;
             }
 
             if (!double.TryParse(input, out double amount))
             {
-                Console.WriteLine("❌ შეცდომა: გთხოვთ შეიყვანეთ სწორი რიცხვი.");
+                Console.WriteLine("შეცდომა: გთხოვთ შეიყვანეთ სწორი რიცხვი.");
                 logger.Warn($"არასწორი რიცხვი გამოტანაში: {input}");
                 return;
             }
 
             if (amount <= 0)
             {
-                Console.WriteLine("❌ თანხა უნდა იყოს დადებითი რიცხვი.");
+                Console.WriteLine("თანხა უნდა იყოს დადებითი რიცხვი.");
                 logger.Warn($"უარყოფითი ან ნულოვანი თანხა: {amount}");
                 return;
             }
@@ -62,7 +62,7 @@ public class BankService
             {
                 AddTransactionRecord(card, "GetAmount", amount);
                 SaveAllUserData(bankCardRoot);
-                Console.WriteLine($"✅ გამოტანა წარმატებული!");
+                Console.WriteLine("გამოტანა წარმატებული!");
                 Console.WriteLine($"გამოტანილი თანხა: {amount} {card.CurrentCurrency}");
                 Console.WriteLine($"ახალი ბალანსი: {card.currentBalance} {card.CurrentCurrency}");
                 logger.Info($"გამოტანა წარმატებული: {amount} {card.CurrentCurrency}. ბალანსი: {card.currentBalance}");
@@ -70,18 +70,18 @@ public class BankService
         }
         catch (ArgumentException ex)
         {
-            Console.WriteLine($"❌ შეცდომა: {ex.Message}");
+            Console.WriteLine($"შეცდომა: {ex.Message}");
             logger.Error($"გამოტანის შეცდომა (ArgumentException): {ex.Message}");
         }
         catch (InvalidOperationException ex)
         {
-            Console.WriteLine($"❌ {ex.Message}");
+            Console.WriteLine($"{ex.Message}");
             logger.Error($"გამოტანის შეცდომა (InvalidOperationException): {ex.Message}");
         }
         catch (Exception ex)
         {
             logger.Error($"გამოტანის შეცდომა: {ex.Message}");
-            Console.WriteLine($"❌ გამოტანის დროს შეცდომა: {ex.Message}");
+            Console.WriteLine($"გამოტანის დროს შეცდომა: {ex.Message}");
         }
     }
 
@@ -94,21 +94,21 @@ public class BankService
 
             if (string.IsNullOrEmpty(input))
             {
-                Console.WriteLine("❌ თანხა არ შეიძლება იყოს ცარიელი.");
+                Console.WriteLine("თანხა არ შეიძლება იყოს ცარიელი.");
                 logger.Warn("ცარიელი შეტანის თანხა.");
                 return;
             }
 
             if (!double.TryParse(input, out double amount))
             {
-                Console.WriteLine("❌ შეცდომა: გთხოვთ შეიყვანეთ სწორი რიცხვი.");
+                Console.WriteLine("შეცდომა: გთხოვთ შეიყვანეთ სწორი რიცხვი.");
                 logger.Warn($"არასწორი რიცხვი შეტანაში: {input}");
                 return;
             }
 
             if (amount <= 0)
             {
-                Console.WriteLine("❌ თანხა უნდა იყოს დადებითი რიცხვი.");
+                Console.WriteLine("თანხა უნდა იყოს დადებითი რიცხვი.");
                 logger.Warn($"უარყოფითი ან ნულოვანი თანხა: {amount}");
                 return;
             }
@@ -119,7 +119,7 @@ public class BankService
             {
                 AddTransactionRecord(card, "FillAmount", amount);
                 SaveAllUserData(bankCardRoot);
-                Console.WriteLine($"✅ შეტანა წარმატებული!");
+                Console.WriteLine("შეტანა წარმატებული!");
                 Console.WriteLine($"შეტანილი თანხა: {amount} {card.CurrentCurrency}");
                 Console.WriteLine($"ახალი ბალანსი: {card.currentBalance} {card.CurrentCurrency}");
                 logger.Info($"შეტანა წარმატებული: {amount} {card.CurrentCurrency}. ბალანსი: {card.currentBalance}");
@@ -127,13 +127,13 @@ public class BankService
         }
         catch (ArgumentException ex)
         {
-            Console.WriteLine($"❌ შეცდომა: {ex.Message}");
+            Console.WriteLine($"შეცდომა: {ex.Message}");
             logger.Error($"შეტანის შეცდომა (ArgumentException): {ex.Message}");
         }
         catch (Exception ex)
         {
             logger.Error($"შეტანის შეცდომა: {ex.Message}");
-            Console.WriteLine($"❌ შეტანის დროს შეცდომა: {ex.Message}");
+            Console.WriteLine($"შეტანის დროს შეცდომა: {ex.Message}");
         }
     }
 
@@ -147,7 +147,7 @@ public class BankService
             if (lastTransactions.Count == 0)
             {
                 Console.WriteLine("ოპერაციების ისტორია ცარიელია.");
-                logger.Info("ოპერაციების ისტორია ცარიელი.");
+                logger.Info("ოპერაციების ისტორია ცარიელია.");
                 return;
             }
 
@@ -167,7 +167,7 @@ public class BankService
         catch (Exception ex)
         {
             logger.Error($"ოპერაციების ნახვის შეცდომა: {ex.Message}");
-            Console.WriteLine("❌ ოპერაციების ნახვაში შეცდომა მოხდა.");
+            Console.WriteLine("ოპერაციების ნახვაში შეცდომა მოხდა.");
         }
     }
 
@@ -181,14 +181,14 @@ public class BankService
 
             if (string.IsNullOrEmpty(oldPin))
             {
-                Console.WriteLine("❌ PIN კოდი არ შეიძლება იყოს ცარიელი.");
+                Console.WriteLine("PIN კოდი არ შეიძლება იყოს ცარიელი.");
                 logger.Warn("ცარიელი PIN კოდი შეცვლაში.");
                 return;
             }
 
             if (oldPin != user.cardDetails.pinCode)
             {
-                Console.WriteLine("❌ შეცდომა: ძველი PIN კოდი არასწორია.");
+                Console.WriteLine("შეცდომა: ძველი PIN კოდი არასწორია.");
                 logger.Warn("არასწორი ძველი PIN კოდი.");
                 AddTransactionRecord(user.cardDetails, "ChangePin", 0);
                 SaveAllUserData(bankCardRoot);
@@ -200,14 +200,14 @@ public class BankService
 
             if (string.IsNullOrEmpty(newPinStr))
             {
-                Console.WriteLine("❌ PIN კოდი არ შეიძლება იყოს ცარიელი.");
+                Console.WriteLine("PIN კოდი არ შეიძლება იყოს ცარიელი.");
                 logger.Warn("ცარიელი ახალი PIN კოდი.");
                 return;
             }
 
             if (!int.TryParse(newPinStr, out int newPin))
             {
-                Console.WriteLine("❌ შეცდომა: PIN უნდა იყოს მხოლოდ ციფრი.");
+                Console.WriteLine("შეცდომა: PIN უნდა იყოს მხოლოდ ციფრი.");
                 logger.Warn($"არასწორი PIN ფორმატი: {newPinStr}");
                 return;
             }
@@ -217,14 +217,14 @@ public class BankService
 
             if (string.IsNullOrEmpty(confirmPinStr))
             {
-                Console.WriteLine("❌ PIN კოდი არ შეიძლება იყოს ცარიელი.");
+                Console.WriteLine("PIN კოდი არ შეიძლება იყოს ცარიელი.");
                 logger.Warn("ცარიელი დამადასტურებელი PIN კოდი.");
                 return;
             }
 
             if (newPinStr != confirmPinStr)
             {
-                Console.WriteLine("❌ შეცდომა: PIN კოდები არ ემთხვევა.");
+                Console.WriteLine("შეცდომა: PIN კოდები არ ემთხვევა.");
                 logger.Warn("PIN კოდები არ ემთხვევა.");
                 return;
             }
@@ -233,19 +233,19 @@ public class BankService
             {
                 AddTransactionRecord(user.cardDetails, "ChangePin", 0);
                 SaveAllUserData(bankCardRoot);
-                Console.WriteLine("✅ PIN კოდი წარმატებით შეიცვალა!");
+                Console.WriteLine("PIN კოდი წარმატებით შეიცვალა!");
                 logger.Info("PIN კოდი წარმატებით შეიცვალა.");
             }
             else
             {
-                Console.WriteLine("❌ შეცდომა: PIN უნდა იყოს 4 ციფრი.");
+                Console.WriteLine("შეცდომა: PIN უნდა იყოს 4 ციფრი.");
                 logger.Warn("PIN კოდი არ აკმაყოფილებს მოთხოვნებს.");
             }
         }
         catch (Exception ex)
         {
             logger.Error($"PIN კოდის შეცვლის შეცდომა: {ex.Message}");
-            Console.WriteLine("❌ PIN კოდის შეცვლაში შეცდომა მოხდა.");
+            Console.WriteLine("PIN კოდის შეცვლაში შეცდომა მოხდა.");
         }
     }
 
@@ -262,14 +262,14 @@ public class BankService
 
             if (string.IsNullOrEmpty(targetCurrency))
             {
-                Console.WriteLine("❌ ვალუტა არ შეიძლება იყოს ცარიელი.");
+                Console.WriteLine("ვალუტა არ შეიძლება იყოს ცარიელი.");
                 logger.Warn("ცარიელი ვალუტის არჩევანი.");
                 return;
             }
 
             if (targetCurrency == user.cardDetails.CurrentCurrency)
             {
-                Console.WriteLine($"❌ თქვენი ბალანსი უკვე {targetCurrency}-ში არის.");
+                Console.WriteLine($"თქვენი ბალანსი უკვე {targetCurrency}-ში არის.");
                 logger.Warn($"იგივე ვალუტაზე კონვერტაციის მცდელობა: {targetCurrency}");
                 return;
             }
@@ -278,7 +278,7 @@ public class BankService
             {
                 AddTransactionRecord(user.cardDetails, "CurrencyConversion", user.cardDetails.currentBalance);
                 SaveAllUserData(bankCardRoot);
-                Console.WriteLine($"✅ ვალუტა წარმატებით გარდაიქმნა!");
+                Console.WriteLine("ვალუტა წარმატებით გარდაიქმნა!");
                 Console.WriteLine($"ახალი ვალუტა: {user.cardDetails.CurrentCurrency}");
                 Console.WriteLine($"ახალი ბალანსი: {user.cardDetails.currentBalance}");
                 logger.Info($"ვალუტა გარდაიქმნა: {targetCurrency}. ბალანსი: {user.cardDetails.currentBalance}");
@@ -286,18 +286,18 @@ public class BankService
         }
         catch (ArgumentException ex)
         {
-            Console.WriteLine($"❌ {ex.Message}");
+            Console.WriteLine($"{ex.Message}");
             logger.Error($"კონვერტაციის შეცდომა (ArgumentException): {ex.Message}");
         }
         catch (InvalidOperationException ex)
         {
-            Console.WriteLine($"❌ {ex.Message}");
+            Console.WriteLine($"{ex.Message}");
             logger.Error($"კონვერტაციის შეცდომა (InvalidOperationException): {ex.Message}");
         }
         catch (Exception ex)
         {
             logger.Error($"კონვერტაციის შეცდომა: {ex.Message}");
-            Console.WriteLine("❌ ვალუტის კონვერტაციაში შეცდომა მოხდა.");
+            Console.WriteLine("ვალუტის კონვერტაციაში შეცდომა მოხდა.");
         }
     }
 
@@ -327,7 +327,6 @@ public class BankService
     {
         try
         {
-            // მხოლოდ ერთი user-ის save ახალი data-ით
             var updatedUser = bankCardRoot.users.FirstOrDefault(u => 
                 u.cardDetails.cardNumber == user.cardDetails.cardNumber);
             
@@ -347,14 +346,13 @@ public class BankService
     {
         try
         {
-            // ყველა user-ის save თავის დეტალებით
             FileService.SaveBankCards(bankCardRoot);
             logger.Info("ყველა მომხმარებლის მონაცემი შენახულია.");
         }
         catch (Exception ex)
         {
             logger.Error($"მნიშვნელოვანი: მონაცემების შენახვის შეცდომა: {ex.Message}");
-            Console.WriteLine("⚠️ გაფრთხოვება: მონაცემების შენახვა ვერ მოხერხდა.");
+            Console.WriteLine("გაფრთხილება: მონაცემების შენახვა ვერ მოხერხდა.");
         }
     }
 }

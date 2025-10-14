@@ -7,7 +7,7 @@
         "cardNumber": "1234567890123456",
         "expirationDate": "12/25",
         "CVC": "123",
-        "currentBalance": 506.63,
+        "currentBalance": 706.63,
         "CurrentCurrency": "GEL",
         "pinCode": "2222",
         "transactionHistory": [
@@ -87,6 +87,34 @@
             "amountGEL": 500,
             "amountUSD": 0,
             "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-14T00:31:32.8667058+04:00",
+            "transactionType": "FillAmount",
+            "amountGEL": 100,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-14T00:31:41.5753542+04:00",
+            "transactionType": "FillAmount",
+            "amountGEL": 300,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-14T00:33:45.1965218+04:00",
+            "transactionType": "BalanceInquiry",
+            "amountGEL": 0,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-14T00:33:59.1776253+04:00",
+            "transactionType": "GetAmount",
+            "amountGEL": 200,
+            "amountUSD": 0,
+            "amountEUR": 0
           }
         ]
       }
@@ -98,7 +126,7 @@
         "cardNumber": "9876543210987654",
         "expirationDate": "06/24",
         "CVC": "456",
-        "currentBalance": 200,
+        "currentBalance": 512,
         "CurrentCurrency": "GEL",
         "pinCode": "1111",
         "transactionHistory": [
@@ -120,6 +148,69 @@
             "transactionDate": "2025-10-11T21:27:09.9421256+04:00",
             "transactionType": "შეტანა",
             "amountGEL": 200,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-14T20:25:39.4766107+04:00",
+            "transactionType": "BalanceInquiry",
+            "amountGEL": 0,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-15T00:03:08.2469988+04:00",
+            "transactionType": "BalanceInquiry",
+            "amountGEL": 0,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-15T00:03:30.6053058+04:00",
+            "transactionType": "GetAmount",
+            "amountGEL": 100,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-15T00:03:39.2096489+04:00",
+            "transactionType": "FillAmount",
+            "amountGEL": 500,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-15T00:04:00.5303598+04:00",
+            "transactionType": "CurrencyConversion",
+            "amountGEL": 0,
+            "amountUSD": 0,
+            "amountEUR": 204
+          },
+          {
+            "transactionDate": "2025-10-15T00:04:10.9117018+04:00",
+            "transactionType": "CurrencyConversion",
+            "amountGEL": 612,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-15T00:17:31.679503+04:00",
+            "transactionType": "BalanceInquiry",
+            "amountGEL": 0,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-15T00:53:43.6903766+04:00",
+            "transactionType": "GetAmount",
+            "amountGEL": 100,
+            "amountUSD": 0,
+            "amountEUR": 0
+          },
+          {
+            "transactionDate": "2025-10-15T01:01:07.5428183+04:00",
+            "transactionType": "BalanceInquiry",
+            "amountGEL": 0,
             "amountUSD": 0,
             "amountEUR": 0
           }

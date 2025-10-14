@@ -11,14 +11,14 @@ public class FileService
     private static readonly Logger logger = LogManager.GetCurrentClassLogger();
     private static readonly string FilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../Data/cards.json");
 
-    public static BankCardRoot LoadBankCards()
+    public static BankCardRoot? LoadBankCards()
     {
         try
         {
             if (!File.Exists(FilePath))
             {
                 logger.Error($"ფაილი ვერ მოიძებნა: {FilePath}");
-                Console.WriteLine("❌ ბანკის ბარათების ფაილი ვერ მოიძებნა.");
+                Console.WriteLine("ბანკის ბარათების ფაილი ვერ მოიძებნა.");
                 return null;
             }
 
@@ -27,16 +27,16 @@ public class FileService
             if (string.IsNullOrWhiteSpace(jsonContent))
             {
                 logger.Error("ფაილი ცარიელია.");
-                Console.WriteLine("❌ ფაილი ცარიელია.");
+                Console.WriteLine("ფაილი ცარიელია.");
                 return null;
             }
 
-            BankCardRoot bankCardRoot = JsonSerializer.Deserialize<BankCardRoot>(jsonContent);
+            BankCardRoot? bankCardRoot = JsonSerializer.Deserialize<BankCardRoot>(jsonContent);
 
             if (bankCardRoot == null || bankCardRoot.users == null || bankCardRoot.users.Count == 0)
             {
                 logger.Warn("ფაილში ხელმისაწვდომი ბარათები არ არის.");
-                Console.WriteLine("⚠️ სისტემაში ბარათები ვერ მოიძებნა.");
+                Console.WriteLine("სისტემაში ბარათები ვერ მოიძებნა.");
                 return null;
             }
 
@@ -46,25 +46,25 @@ public class FileService
         catch (JsonException ex)
         {
             logger.Error($"JSON ფაილის გახსნის შეცდომა: {ex.Message}");
-            Console.WriteLine("❌ ფაილის ფორმატი არასწორია.");
+            Console.WriteLine("ფაილის ფორმატი არასწორია.");
             return null;
         }
         catch (UnauthorizedAccessException ex)
         {
             logger.Error($"ფაილზე წვდომა არ არის: {ex.Message}");
-            Console.WriteLine("❌ ფაილზე წვდომა უარი თქვა.");
+            Console.WriteLine("ფაილზე წვდომა უარი თქვა.");
             return null;
         }
         catch (FileNotFoundException ex)
         {
             logger.Error($"ფაილი ვერ მოიძებნა: {ex.Message}");
-            Console.WriteLine("❌ ფაილი ვერ მოიძებნა.");
+            Console.WriteLine("ფაილი ვერ მოიძებნა.");
             return null;
         }
         catch (Exception ex)
         {
             logger.Error($"ფაილის ჩატვირთვის შეცდომა: {ex.Message}");
-            Console.WriteLine("❌ ფაილი ვერ ჩაიტვირთა.");
+            Console.WriteLine("ფაილი ვერ ჩაიტვირთა.");
             return null;
         }
     }
@@ -76,19 +76,18 @@ public class FileService
             if (bankCardRoot == null)
             {
                 logger.Error("მცდელობა: null მონაცემების შენახვა.");
-                Console.WriteLine("❌ მონაცემების შენახვა ვერ მოხერხდა (null მონაცემი).");
+                Console.WriteLine("მონაცემების შენახვა ვერ მოხერხდა (null მონაცემი).");
                 return;
             }
 
             if (bankCardRoot.users == null || bankCardRoot.users.Count == 0)
             {
                 logger.Warn("მცდელობა: ცარიელი მომხმარებლების სიის შენახვა.");
-                Console.WriteLine("⚠️ არ არის შენახვისთვის მომხმარებელი.");
+                Console.WriteLine("არ არის შენახვისთვის მომხმარებელი.");
                 return;
             }
 
-            // დირექტორიის შექმნა თუ ის არ არსებობს
-            string directory = Path.GetDirectoryName(FilePath);
+            string directory = Path.GetDirectoryName(FilePath)!;
             if (!Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
@@ -109,48 +108,27 @@ public class FileService
         catch (UnauthorizedAccessException ex)
         {
             logger.Error($"ფაილის წვდომა უარი: {ex.Message}");
-            Console.WriteLine("❌ ფაილზე წვდომა უარი თქვა.");
+            Console.WriteLine("ფაილზე წვდომა უარი თქვა.");
         }
         catch (DirectoryNotFoundException ex)
         {
             logger.Error($"დირექტორია ვერ მოიძებნა: {ex.Message}");
-            Console.WriteLine("❌ დირექტორია ვერ მოიძებნა.");
+            Console.WriteLine("დირექტორია ვერ მოიძებნა.");
         }
         catch (IOException ex)
         {
             logger.Error($"I/O შეცდომა ფაილის შენახვისას: {ex.Message}");
-            Console.WriteLine("❌ ფაილის შენახვაში I/O შეცდომა მოხდა.");
+            Console.WriteLine("ფაილის შენახვაში I/O შეცდომა მოხდა.");
         }
         catch (JsonException ex)
         {
             logger.Error($"JSON სერიალიზაციის შეცდომა: {ex.Message}");
-            Console.WriteLine("❌ მონაცემების ფორმატირებაში შეცდომა.");
+            Console.WriteLine("მონაცემების ფორმატირებაში შეცდომა.");
         }
         catch (Exception ex)
         {
             logger.Error($"მონაცემების შენახვის შეცდომა: {ex.Message}");
-            Console.WriteLine("❌ მონაცემების შენახვა ვერ მოხერხდა.");
+            Console.WriteLine("მონაცემების შენახვა ვერ მოხერხდა.");
         }
     }
-
-    // public static bool IsFileValid()
-    // {
-    //     try
-    //     {
-    //         if (!File.Exists(FilePath))
-    //             return false;
-    //
-    //         string content = File.ReadAllText(FilePath);
-    //         if (string.IsNullOrWhiteSpace(content))
-    //             return false;
-    //
-    //         var data = JsonSerializer.Deserialize<BankCardRoot>(content);
-    //         return data != null && data.users != null && data.users.Count > 0;
-    //     }
-    //     catch (Exception ex)
-    //     {
-    //         logger.Error($"ფაილის ვალიდაციის შეცდომა: {ex.Message}");
-    //         return false;
-    //     }
-    // }
 }
