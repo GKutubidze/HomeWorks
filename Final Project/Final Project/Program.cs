@@ -58,7 +58,7 @@ namespace Final_Project
 
                 if (string.IsNullOrEmpty(cardNumber))
                 {
-                    Console.WriteLine("❌ ბარათის ნომერი არ შეიძლება იყოს ცარიელი.");
+                    Console.WriteLine("ბარათის ნომერი არ შეიძლება იყოს ცარიელი.");
                     logger.Warn("ცარიელი ბარათის ნომერი.");
                     return null;
                 }
@@ -68,7 +68,7 @@ namespace Final_Project
 
                 if (string.IsNullOrEmpty(expirationDate))
                 {
-                    Console.WriteLine("❌ მოქმედების ვადა არ შეიძლება იყოს ცარიელი.");
+                    Console.WriteLine("მოქმედების ვადა არ შეიძლება იყოს ცარიელი.");
                     logger.Warn("ცარიელი მოქმედების ვადა.");
                     return null;
                 }
@@ -85,14 +85,14 @@ namespace Final_Project
 
                     if (string.IsNullOrEmpty(cvc))
                     {
-                        Console.WriteLine("❌ CVC კოდი არ შეიძლება იყოს ცარიელი.");
+                        Console.WriteLine("CVC კოდი არ შეიძლება იყოს ცარიელი.");
                         logger.Warn("ცარიელი CVC კოდი.");
                         return null;
                     }
 
                     if (card.cardDetails.CVC != cvc)
                     {
-                        Console.WriteLine("❌ არასწორი CVC კოდი.");
+                        Console.WriteLine("არასწორი CVC კოდი.");
                         logger.Warn($"არასწორი CVC კოდი ბარათისთვის: {cardNumber}");
                         return null;
                     }
@@ -102,27 +102,27 @@ namespace Final_Project
 
                     if (string.IsNullOrEmpty(pinCode))
                     {
-                        Console.WriteLine("❌ PIN კოდი არ შეიძლება იყოს ცარიელი.");
+                        Console.WriteLine("PIN კოდი არ შეიძლება იყოს ცარიელი.");
                         logger.Warn("ცარიელი PIN კოდი.");
                         return null;
                     }
 
                     if (card.cardDetails.pinCode == pinCode)
                     {
-                        Console.WriteLine($"✅ ავტორიზაცია წარმატებული. მოგესალმები, {card.firstName} {card.lastName}!");
+                        Console.WriteLine($"ავტორიზაცია წარმატებული. მოგესალმები, {card.firstName} {card.lastName}!");
                         logger.Info($"ავტორიზაცია წარმატებული: {card.firstName} {card.lastName}");
                         return card;
                     }
                     else
                     {
-                        Console.WriteLine("❌ არასწორი PIN კოდი.");
+                        Console.WriteLine("არასწორი PIN კოდი.");
                         logger.Warn($"არასწორი PIN კოდი ბარათისთვის: {cardNumber}");
                         return null;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("❌ ბარათი ვერ მოიძებნა. არასწორი ნომერი ან მოქმედების ვადა.");
+                    Console.WriteLine("ბარათი ვერ მოიძებნა. არასწორი ნომერი ან მოქმედების ვადა.");
                     logger.Warn($"ბარათი ვერ მოიძებნა: {cardNumber}");
                     return null;
                 }
@@ -157,7 +157,7 @@ namespace Final_Project
 
                     if (string.IsNullOrEmpty(choice))
                     {
-                        Console.WriteLine("❌ გთხოვთ შეიყვანოთ მენიუს ნომერი.");
+                        Console.WriteLine("გთხოვთ შეიყვანოთ მენიუს ნომერი.");
                         logger.Warn("ცარიელი მენიუს არჩევანი.");
                         continue;
                     }
@@ -167,7 +167,7 @@ namespace Final_Project
                 catch (Exception ex)
                 {
                     logger.Error($"მენიუს შეცდომა: {ex.Message}");
-                    Console.WriteLine("❌ რაიმე საქმე მოხდა. გთხოვთ სცადოთ თავიდან.");
+                    Console.WriteLine("რაიმე შეცდომა მოხდა. გთხოვთ სცადოთ თავიდან.");
                 }
             }
         }
@@ -197,11 +197,11 @@ namespace Final_Project
                         BankService.ConvertCurrency(user, bankCardRoot);
                         break;
                     case "7":
-                        Console.WriteLine("✅ გამოსვლა...");
+                        Console.WriteLine("გამოსვლა...");
                         logger.Info("მომხმარებელი გამოსული");
                         return false;
                     default:
-                        Console.WriteLine("❌ არასწორი არჩევანი. გთხოვთ აირჩიეთ 1-დან 7-მდე.");
+                        Console.WriteLine("არასწორი არჩევანი. გთხოვთ აირჩიეთ 1-დან 7-მდე.");
                         logger.Warn($"არასწორი მენიუს არჩევანი: {choice}");
                         break;
                 }
@@ -218,7 +218,7 @@ namespace Final_Project
             catch (Exception ex)
             {
                 logger.Error($"ოპერაციის შეცდომა ({choice}): {ex.Message}");
-                Console.WriteLine("❌ ოპერაციის შესრულებაში შეცდომა მოხდა.");
+                Console.WriteLine("ოპერაციის შესრულებაში შეცდომა მოხდა.");
                 Console.WriteLine("\nგასაგრძელებლად დააჭირეთ Enter...");
                 Console.ReadLine();
                 Console.Clear();
